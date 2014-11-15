@@ -120,6 +120,8 @@ class KTerminalCommand():
 
             for k, v in enumerate(parameters):
                 parameters[k] = v.replace('%CWD%', dir_)
+                parameters[k] = v.replace('k kestrelmon', 'nodemon --exec k kestrel -e cs,json')
+            
             args = [KTerminalSelector.get()]
             args.extend(parameters)
 
@@ -244,7 +246,8 @@ class KRunCommand(sublime_plugin.WindowCommand):
             json_commands = json_file['commands'] 
             for command in json_commands:
                 args = json_commands[command]
-                if command.lower() == 'web' or command.lower() == 'kestrel':
+                if command.lower() == 'web' or command.lower() == 'kestrel' or command.lower() == 'kestrelmon':
+                    
                     url_regex = r'(?:--server.urls |server.urls=)(http:\/\/[^\s]+)'
                     match = re.search(url_regex, args)
                     try:
@@ -252,8 +255,12 @@ class KRunCommand(sublime_plugin.WindowCommand):
                     except AttributeError as e:
                         url = 'http://localhost:5000'
                     self.commands.append(['k ' + command, 'Run server at ' + url])
+                    
                 else:
+                    
                     self.commands.append(['k ' + command, args])
+            
+            
         except LookupError:
             pass
         self.commands.append(['kpm restore', 'Restore packages'])
