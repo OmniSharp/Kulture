@@ -87,7 +87,7 @@ class KTerminalSelector():
                 if wm[0] == 'gnome-session':
                     default = 'gnome-terminal'
                 elif wm[0] == 'xfce4-session':
-                    default = 'terminal'
+                    default = 'xfce4-terminal'
                 elif wm[0] == 'ksmserver':
                     default = 'konsole'
             if not default:
@@ -127,6 +127,8 @@ class KTerminalCommand():
                 args = shlex.split(args[0] + ' -x bash -ic "' + args[1] + '"')
             elif args[0] in ['terminal', 'konsole', 'xterm']:
                 args = shlex.split(args[0] + ' -e bash -ic "' + args[1] + '"')
+            elif args[0] == 'xfce4-terminal':
+                args = shlex.split(args[0] + ' -H --working-directory=' + dir_ + ' -x ' + args[1])
 
             encoding = locale.getpreferredencoding(do_setlocale=True)
             if sys.version_info >= (3,):
