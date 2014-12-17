@@ -142,7 +142,7 @@ class KTerminalCommand():
                 startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
                 subprocess.Popen(args, cwd=cwd, startupinfo=startupinfo)
             elif plat == 'linux':
-                subprocess.Popen(args)
+                subprocess.Popen(args, cwd=cwd)
             else:
                 subprocess.Popen(args, cwd=cwd)
 
