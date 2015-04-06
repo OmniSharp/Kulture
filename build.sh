@@ -1,7 +1,7 @@
 #!/bin/bash
 # Add K to path and trigger build
 ver=`cat ~/.k/alias/default.alias`
-add_to_path=$HOME"/.k/runtime/"$ver"/bin"
+add_to_path=$HOME"/.k/runtimes/"$ver"/bin"
 export PATH=$PATH:/usr/local/bin:$add_to_path
 [ -s $HOME"/.k/kvm/kvm.sh" ] && . $HOME"/.k/kvm/kvm.sh"
 directory="./"
