@@ -24,6 +24,9 @@ class KKultureCompletion( sublime_plugin.EventListener):
         while(self.thread.is_alive()):
             pass
         response = self.thread.response
+        if not response:
+            print (self.thread.message)
+            return
         for package in response:
             t = (package['Id'],package['Id'])
             # if t not in self.result:
