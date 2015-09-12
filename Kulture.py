@@ -115,7 +115,7 @@ class KTerminalCommand():
 
             pathToProjJson = self.findProjectJsonFile()
             print('path to project.json'+pathToProjJson)
-            
+
             dir_ = os.path.dirname(self.findProjectJsonFile())
 
             for k, v in enumerate(parameters):
@@ -185,7 +185,7 @@ class KTerminalCommand():
         counter = 0
         while counter < 100:
             counter += 1
-            
+
             if(previousPath == pathToCheck):
                 break
 
@@ -243,7 +243,7 @@ class KRunCommand(sublime_plugin.WindowCommand):
             return
         self.commands = []
         try:
-            json_commands = json_file['commands'] 
+            json_commands = json_file['commands']
             for command in json_commands:
                 args = json_commands[command]
                 if command.lower() == 'web' or command.lower() == 'kestrel':
@@ -253,14 +253,14 @@ class KRunCommand(sublime_plugin.WindowCommand):
                         url = match.group(1)
                     except AttributeError as e:
                         url = 'http://localhost:5000'
-                    self.commands.append(['k ' + command, 'Run server at ' + url])
+                    self.commands.append(['dnx ' + command, 'Run server at ' + url])
                 else:
-                    self.commands.append(['k ' + command, args])
+                    self.commands.append(['dnx ' + command, args])
         except LookupError:
             pass
-        self.commands.append(['kpm restore', 'Restore packages'])
-        self.commands.append(['kpm pack', 'Bundle application for deployment'])
-        self.commands.append(['kpm build', 'Build NuGet packages for the project in given directory'])
+        self.commands.append(['dnu restore', 'Restore packages'])
+        self.commands.append(['dnu pack', 'Bundle application for deployment'])
+        self.commands.append(['dnu build', 'Build NuGet packages for the project in given directory'])
         self.window.show_quick_panel(self.commands, self.commandlist)
     def commandlist(self, position):
         if (position > -1):
@@ -301,7 +301,7 @@ class KRunCommand(sublime_plugin.WindowCommand):
         counter = 0
         while counter < 100:
             counter += 1
-            
+
             if(previousPath == pathToCheck):
                 break
 
