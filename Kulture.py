@@ -327,7 +327,7 @@ class RetrievePackageNames(threading.Thread):
 
     def run(self):
         try:
-            request = urllib.request.Request('https://www.myget.org/F/aspnetrelease/api/v2/Packages()?$select=Id&$format=json&orderby=DownloadCount&$top=100',
+            request = urllib.request.Request('https://www.myget.org/F/aspnetvnext/api/v2/Packages()?$select=Id&$format=json&orderby=DownloadCount&$top=100',
                 headers={'User-Agent': 'Sublime'})
             http_file = urllib.request.urlopen(request, timeout=self.timeout)
             self.result = []
