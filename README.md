@@ -64,11 +64,11 @@ To get started you can use [yeoman](http://yeoman.io/)
 
     npm install -g yo
     npm install -g generator-aspnet
-    
+
 To run the yeoman scaffolder, type
-    
+
     yo aspnet
-    
+
 
 Let's go ahead and create a new Web project using ```yo aspnet```. In Sublime, click on `File -> Open Folder` and navigate to the folder to open it up.
 
@@ -78,9 +78,9 @@ Since we just grabbed this from source control there are NuGet packages which th
 
 - Press `Ctrl(Cmd) + Shift + P` to bring up the command palette
 - Type `Run K Commands` and hit Enter (Return)
-- Type `kpm restore` and hit Enter (Return)
+- Type `dnu restore` and hit Enter (Return)
 
-_Note:_ when executing `kpm restore` if you get an error about missing NuGet packages you can execute the alternate command `kpm restore -s https://www.myget.org/F/aspnetvnext/api/v2`
+_Note:_ when executing `dnu restore` if you get an error about missing NuGet packages you can execute the alternate command `dnu restore -s https://www.myget.org/F/aspnetvnext/api/v2`
 
 You should see a Terminal/Powershell window launch and execute your commands.
 
@@ -101,8 +101,8 @@ After we resolve all the errors we have introduced, let us try and run the appli
 
 - Press `Ctrl(Cmd) + Shift + P` to bring up the command palette
 - Type `Run K Commands` and hit Enter (Return)
-- Type `k web` and hit Enter (Return)
-- If you are on a Mac, type `k kestrel` and hit Enter (Return)
+- Type `dnx web` and hit Enter (Return)
+- If you are on a Mac or Linux, type `dnx kestrel` and hit Enter (Return)
 
 You should see a Terminal/Powershell window launch and start running your server. You can navigate to `http://localhost:5001` (or `http://localhost:5000` on a Mac) in your favorite browser you view the website.
 
